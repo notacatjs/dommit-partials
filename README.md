@@ -62,12 +62,8 @@ Now, here's how to use that partial in two ways:
 var template1 = '<label><i partial-icon="merry-go-round"></i>Merry Go Rounds!</label>'
   , view1 = reactive(template1, {}, { partials: { 'icon': iconPartial } }).use(partials)
 
-var template2 = '<tr each="rows"><td><i partial-icon></i></td><td data-text="text"></td></tr>'
-  , state = { rows: [
-      { text: 'yoyos are cool', icon_type: 'yoyo' },
-      { text: 'kites are cooler', icon_type: 'kites' },
-      { text: 'ps2 was the coolest', icon_type: 'ps2' }
-    ]}
+var template2 = '<tr><td><i partial-icon></i></td><td data-text="text"></td></tr>'
+  , state = { text: 'yoyos are cool', icon_type: 'yoyo' }
   , view2 = reactive(template2, state, { partials: { 'icon': iconPartial } }).use(partials)
 ```
 
