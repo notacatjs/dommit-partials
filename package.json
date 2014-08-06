@@ -1,0 +1,35 @@
+{
+  "name": "reactive-partials",
+  "version": "0.0.0",
+  "description": "Partial system for reactive",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "zuul -- test/*.js",
+    "test-local": "zuul --local -- test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yanatan16/reactive-partials.git"
+  },
+  "keywords": [
+    "reactive"
+  ],
+  "author": "Jon Eisen <jon@joneisen.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yanatan16/reactive-partials/issues"
+  },
+  "homepage": "https://github.com/yanatan16/reactive-partials",
+  "dependencies": {
+    "carry": "0.0.1",
+    "lodash.foreach": "^2.4.1",
+    "reactive": "^1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.3",
+    "zuul": "^1.10.0"
+  }
+}
