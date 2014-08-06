@@ -13,6 +13,7 @@ npm install reactive-partials
 
 ```javascript
 var partials = require('reactive-partials')
+```
 
 ## How To Use
 
