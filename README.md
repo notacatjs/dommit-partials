@@ -13,6 +13,7 @@ npm install reactive-partials
 
 ```javascript
 var partials = require('reactive-partials')
+  , reactive = partials(require('reactive'))
 ```
 
 ## How To Use
@@ -28,7 +29,7 @@ function ATable() {
 
 var view = reactive("<div partial-a-table></div>", {}, {
   partials: { 'a-table': ATable }
-}).use(partials)
+})
 
 // Now view.el is "<table></table>"
 ```
@@ -60,11 +61,11 @@ Now, here's how to use that partial in two ways:
 
 ```javascript
 var template1 = '<label><i partial-icon="merry-go-round"></i>Merry Go Rounds!</label>'
-  , view1 = reactive(template1, {}, { partials: { 'icon': iconPartial } }).use(partials)
+  , view1 = reactive(template1, {}, { partials: { 'icon': iconPartial } })
 
 var template2 = '<tr><td><i partial-icon></i></td><td data-text="text"></td></tr>'
   , state = { text: 'yoyos are cool', icon_type: 'yoyo' }
-  , view2 = reactive(template2, state, { partials: { 'icon': iconPartial } }).use(partials)
+  , view2 = reactive(template2, state, { partials: { 'icon': iconPartial } })
 ```
 
 ## Dynamic Partials
@@ -78,7 +79,7 @@ function partialB() { return domify('<div class="b"></div>') }
 var template = '<div><div partial="type"></div></div>'
   , view = reactive(template, { type: 'a' }, {
       partials: { a: partialA, b: partialB }
-    }).use(partials)
+    })
 
 view.set('type', 'b') // updates the view
 ```

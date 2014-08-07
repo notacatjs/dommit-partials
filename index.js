@@ -1,15 +1,21 @@
 var foreach = require('lodash.foreach')
   , carry = require('carry')
 
-module.exports = partialsPlugin
+module.exports = wrapReactive
 
-// Add partials support to the reactive view
-function partialsPlugin(reactive) {
-  foreach(reactive.opt.partials, function (View, name) {
-    reactive.bind('partial-'+name, staticPartial(View, name))
-  })
+function wrapReactive(reactive) {
+  return function (template, state, options) {
+    options = options || {}
+    options.bindings = options.bindings || {}
 
-  reactive.bind('partial', dynamicPartial(reactive.opt.partials))
+    foreach(options.partials, function (View, name) {
+      options.bindings['partial-'+name] = staticPartial(View, name)
+    })
+
+    options.bindings['partial'] = dynamicPartial(options.partials)
+
+    return reactive(template, state, options)
+  }
 }
 
 // reactive("<div partial=\"somevar\"></div>", {somvar: 'somepartial'}, {
