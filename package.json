@@ -25,7 +25,6 @@
   "homepage": "https://github.com/yanatan16/reactive-partials",
   "dependencies": {
     "carry": "0.0.1",
-    "lodash.foreach": "^2.4.1",
     "reactive": "^1.2.0"
   },
   "devDependencies": {

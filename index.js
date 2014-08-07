@@ -1,5 +1,4 @@
-var foreach = require('lodash.foreach')
-  , carry = require('carry')
+var carry = require('carry')
 
 module.exports = wrapReactive
 
@@ -55,4 +54,10 @@ function staticPartial(View, name) {
       , newEl = carry(partial, el)
     el.parentNode.replaceChild(newEl, el)
   }
+}
+
+function foreach(o, f) {
+  return o && Object.keys(o).forEach(function (k) {
+    return f(o[k], k)
+  })
 }
